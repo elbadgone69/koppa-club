@@ -1089,13 +1089,15 @@ footer a:hover,footer span:hover{opacity:.6}
       </div>
 
       <div class="form-wrap">
+        <form id="contactForm">
         <div id="formFields">
           <div class="form-row">
             <div class="field"><label>Prénom <span class="req">*</span></label><input type="text" name="prenom" required></div>
             <div class="field"><label>Nom <span class="req">*</span></label><input type="text" name="nom" required></div>
           </div>
           <div class="field"><label>Rôle dans le club <span class="req">*</span></label>
-            <select>
+            <select name="role" required>
+              <option value="">-- Sélectionnez --</option>
               <option>Président·e</option>
               <option>Comité directeur</option>
               <option>Trésorier·e</option>
@@ -1106,23 +1108,23 @@ footer a:hover,footer span:hover{opacity:.6}
           </div>
           <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
           <div class="field"><label>Téléphone</label><input type="tel" name="telephone"></div>
-          <div class="field"><label>Nom du club <span class="req">*</span></label><input type="text" required></div>
+          <div class="field"><label>Nom du club <span class="req">*</span></label><input type="text" name="club" required></div>
           <div class="form-row">
             <div class="field"><label>Sport</label>
-              <select>
+              <select name="sport">
                 <option>Football</option><option>Rugby</option><option>Basketball</option>
                 <option>Handball</option><option>Volley</option><option>Autre</option>
               </select>
             </div>
             <div class="field"><label>Licenciés</label>
-              <select>
+              <select name="licencies">
                 <option>Moins de 100</option><option>100 — 250</option>
                 <option>250 — 500</option><option>Plus de 500</option>
               </select>
             </div>
           </div>
-          <div class="field"><label>Message</label><textarea placeholder="Votre timing, vos attentes..."></textarea></div>
-          <button class="btn btn-blue form-submit" onclick="submitForm()">Envoyer ma demande</button>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Votre timing, vos attentes..."></textarea></div>
+          <button type="button" id="submitBtn" class="btn btn-blue form-submit" onclick="envoyerFormulaire()">Envoyer ma demande</button>
           <div class="form-note">Aucun engagement. Réponse sous 48h.</div>
         </div>
         <div class="form-success" id="formSuccess">
@@ -1130,9 +1132,9 @@ footer a:hover,footer span:hover{opacity:.6}
           <h3>Demande reçue !</h3>
           <p>On revient vers vous sous 48h avec une proposition personnalisée pour votre club.</p>
         </div>
+        </form>
       </div>
     </div>
-  </div>
 </div><!-- /page-contact -->
 
 <!-- ============================================================
@@ -1351,39 +1353,7 @@ function showShopList(){
 }
 
 /* ---- Formulaire ---- */
-async function submitForm(){
-  const form = document.getElementById('contactForm');
-  const fields = document.getElementById('formFields');
-  const success = document.getElementById('formSuccess');
-  const btn = fields.querySelector('button[onclick]');
 
-  // Récupérer les données du formulaire
-  const data = new FormData(form);
-
-  btn.textContent = 'Envoi en cours...';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch('https://formspree.io/f/mbdbroje', {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (res.ok) {
-      fields.style.display = 'none';
-      success.classList.add('show');
-    } else {
-      btn.textContent = 'Envoyer ma demande';
-      btn.disabled = false;
-      alert('Erreur lors de l\'envoi. Réessayez ou contactez-nous à koppamyclub@gmail.com');
-    }
-  } catch(e) {
-    btn.textContent = 'Envoyer ma demande';
-    btn.disabled = false;
-    alert('Erreur réseau. Réessayez ou contactez-nous à koppamyclub@gmail.com');
-  }
-}
 </script>
 
 
@@ -1519,5 +1489,54 @@ window.addEventListener('load', () => {
 });
 </script>
 <!-- FIN KOPPA STRIPE -->
+
+<script>
+async function envoyerFormulaire() {
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const fields = document.getElementById('formFields');
+  const success = document.getElementById('formSuccess');
+
+  // Validation basique
+  const prenom = form.querySelector('[name="prenom"]').value.trim();
+  const email = form.querySelector('[name="email"]').value.trim();
+  const role = form.querySelector('[name="role"]').value;
+  const club = form.querySelector('[name="club"]').value.trim();
+
+  if (!prenom || !email || !role || !club) {
+    alert('Merci de remplir tous les champs obligatoires (*)');
+    return;
+  }
+
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch('https://formspree.io/f/mbdbroje', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      fields.style.display = 'none';
+      success.classList.add('show');
+    } else {
+      const json = await res.json();
+      console.error('Formspree error:', json);
+      btn.textContent = 'Envoyer ma demande';
+      btn.disabled = false;
+      alert('Erreur lors de l\'envoi. Contactez-nous à koppamyclub@gmail.com');
+    }
+  } catch(err) {
+    console.error('Fetch error:', err);
+    btn.textContent = 'Envoyer ma demande';
+    btn.disabled = false;
+    alert('Erreur réseau. Contactez-nous à koppamyclub@gmail.com');
+  }
+}
+</script>
 </body>
 </html>
