@@ -1,0 +1,8 @@
+{
+  "name": "koppa-club",
+  "version": "1.0.0",
+  "description": "KOPPA. — Le cahier collector de votre club",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
