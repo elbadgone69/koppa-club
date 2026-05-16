@@ -1092,8 +1092,8 @@ footer a:hover,footer span:hover{opacity:.6}
         <form id="contactForm">
         <div id="formFields">
           <div class="form-row">
-            <div class="field"><label>Prénom <span class="req">*</span></label><input type="text" name="prenom" required></div>
-            <div class="field"><label>Nom <span class="req">*</span></label><input type="text" name="nom" required></div>
+            <div class="field"><label>Prénom <span class="req">*</span></label><input type="text" name="prenom" autocomplete="given-name" required></div>
+            <div class="field"><label>Nom <span class="req">*</span></label><input type="text" name="nom" autocomplete="family-name" required></div>
           </div>
           <div class="field"><label>Rôle dans le club <span class="req">*</span></label>
             <select name="role" required>
@@ -1106,9 +1106,9 @@ footer a:hover,footer span:hover{opacity:.6}
               <option>Autre</option>
             </select>
           </div>
-          <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
-          <div class="field"><label>Téléphone</label><input type="tel" name="telephone"></div>
-          <div class="field"><label>Nom du club <span class="req">*</span></label><input type="text" name="club" required></div>
+          <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" autocomplete="email" required></div>
+          <div class="field"><label>Téléphone <span class="req">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
+          <div class="field"><label>Nom du club <span class="req">*</span></label><input type="text" name="club" autocomplete="organization" required></div>
           <div class="form-row">
             <div class="field"><label>Sport</label>
               <select name="sport">
@@ -1502,8 +1502,9 @@ async function envoyerFormulaire() {
   const email = form.querySelector('[name="email"]').value.trim();
   const role = form.querySelector('[name="role"]').value;
   const club = form.querySelector('[name="club"]').value.trim();
+  const telephone = form.querySelector('[name="telephone"]').value.trim();
 
-  if (!prenom || !email || !role || !club) {
+  if (!prenom || !email || !role || !club || !telephone) {
     alert('Merci de remplir tous les champs obligatoires (*)');
     return;
   }
