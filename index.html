@@ -1394,11 +1394,12 @@ function nav(page, pushState=true){
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  const tab = [...document.querySelectorAll('.nav-tab')].find(t => t.textContent.toLowerCase().includes(page === 'how' ? 'marche' : page));
+  const normalize = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); const tab = [...document.querySelectorAll('.nav-tab')].find(t => normalize(t.textContent).includes(page === 'how' ? 'marche' : page));
   if(tab) tab.classList.add('active');
   document.getElementById('navTabs').classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'});
   triggerReveal();
+  if(page === 'depot') setTimeout(afficherJoueurs, 100);
   // History API pour que le bouton retour iPhone fonctionne
   if(pushState) history.pushState({page}, '', '?p=' + page);
 }
