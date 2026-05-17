@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KOPPA. — Le cahier collector de votre club</title>
+<title>Koppa | Album collector et vignettes personnalisés pour clubs de sport</title>
+<meta name="description" content="Koppa crée l'album collector et les boosters de vignettes personnalisés de votre club de football. Vos joueurs en vignettes, comme Panini. Zéro investissement pour le club.">
+<meta name="keywords" content="album stickers club de foot, vignettes personnalisées football amateur, cahier Panini club football, album collector football enfants, vignettes club sport amateur">
+<meta property="og:title" content="Koppa — L'album collector de votre club de sport">
+<meta property="og:description" content="Vos joueurs en vignettes, comme Panini. Album A4 personnalisé + boosters surprises pour tous les clubs amateurs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://koppa.netlify.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Koppa — L'album collector de votre club">
+<meta name="twitter:description" content="Vos joueurs en vignettes, comme Panini. Album personnalisé + boosters surprises.">
+<link rel="canonical" href="https://koppa.netlify.app">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230033A0'/><text y='.9em' font-size='55' font-family='Arial Black,sans-serif' font-weight='900' fill='white' x='50%' text-anchor='middle' dominant-baseline='middle' dy='0.1em'>K.</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -660,12 +670,13 @@ footer a:hover,footer span:hover{opacity:.6}
     <button class="nav-tab" onclick="nav('concept')">Le concept</button>
     <button class="nav-tab" onclick="nav('how')">Comment ça marche</button>
     <button class="nav-tab" onclick="nav('shop')">Boutique</button>
+    <button class="nav-tab" onclick="nav('depot')">Dépôt joueurs</button>
     <button class="nav-tab" onclick="nav('contact')">Contact</button>
   </div>
 
-  <button class="nav-cta" onclick="nav('contact')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    Mon club
+  <button class="nav-cta" onclick="nav('shop')" style="background:var(--blue-deep);">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    Commander
   </button>
 
   <button class="burger" onclick="document.getElementById('navTabs').classList.toggle('open')">☰</button>
@@ -690,9 +701,9 @@ footer a:hover,footer span:hover{opacity:.6}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Présenter à mon club
         </button>
-        <button class="btn btn-outline" onclick="nav('shop')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          Acheter
+        <button class="btn" onclick="nav('shop')" style="background:#fff;color:var(--blue);border:2px solid #fff;font-size:16px;padding:16px 32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Commander
         </button>
       </div>
       <div class="hero-stats">
@@ -756,6 +767,7 @@ footer a:hover,footer span:hover{opacity:.6}
   <div class="tab-page">
     <div class="section-label">Le concept</div>
     <h1 class="section-title">Vos joueurs deviennent <em>légendes</em>.</h1>
+    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0">Album collector football amateur — vignettes personnalisées club de foot</h2>
     <p class="concept-intro">KOPPA. fabrique des cahiers de collection personnalisés et des boosters de vignettes pour les clubs de sport amateurs. L'expérience Panini, aux couleurs de votre club.</p>
 
     <div class="concept-cards">
@@ -1208,6 +1220,135 @@ footer a:hover,footer span:hover{opacity:.6}
 <!-- ============================================================
    FOOTER
    ============================================================ -->
+
+<!-- PAGE DÉPÔT JOUEURS -->
+<div class="page" id="page-depot">
+  <div class="tab-page">
+    <div class="section-label">Dépôt joueurs</div>
+    <h1 class="section-title">Déposez les <em>infos joueurs</em>.</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:640px;margin-bottom:48px;line-height:1.6;">Remplissez ce formulaire pour chaque joueur. Chaque soumission est enregistrée et accessible dans votre espace Airtable.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px;">
+
+      <!-- Formulaire dépôt -->
+      <div style="background:var(--paper);border-radius:12px;padding:40px;border:1px solid var(--border);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--blue);"></div>
+
+        <form id="depotForm">
+          <div class="form-row">
+            <div class="field"><label>Prénom <span class="req">*</span></label><input type="text" name="prenom" autocomplete="off" required></div>
+            <div class="field"><label>Nom <span class="req">*</span></label><input type="text" name="nom" autocomplete="off" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Équipe / Catégorie <span class="req">*</span></label>
+              <select name="equipe" required>
+                <option value="">-- Sélectionnez --</option>
+                <option>U6 / Baby foot</option>
+                <option>U8</option>
+                <option>U10</option>
+                <option>U11</option>
+                <option>U12</option>
+                <option>U13</option>
+                <option>U14</option>
+                <option>U15</option>
+                <option>U16</option>
+                <option>U17</option>
+                <option>U18</option>
+                <option>U19</option>
+                <option>Séniors A</option>
+                <option>Séniors B</option>
+                <option>Séniors C</option>
+                <option>Vétérans</option>
+                <option>Féminin</option>
+              </select>
+            </div>
+            <div class="field"><label>Poste</label>
+              <select name="poste">
+                <option value="">-- Sélectionnez --</option>
+                <option>Gardien</option>
+                <option>Défenseur central</option>
+                <option>Latéral droit</option>
+                <option>Latéral gauche</option>
+                <option>Milieu défensif</option>
+                <option>Milieu central</option>
+                <option>Milieu offensif</option>
+                <option>Ailier droit</option>
+                <option>Ailier gauche</option>
+                <option>Attaquant</option>
+                <option>Avant-centre</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Pied fort</label>
+              <select name="pied">
+                <option value="">--</option>
+                <option>Droitier</option>
+                <option>Gaucher</option>
+                <option>Les deux</option>
+              </select>
+            </div>
+            <div class="field"><label>Numéro de maillot</label>
+              <input type="number" name="numero" min="1" max="99" autocomplete="off">
+            </div>
+          </div>
+          <div class="field"><label>Photo du joueur <span class="req">*</span></label>
+            <input type="file" name="photo" accept="image/*" required style="padding:12px 0;border-bottom:1.5px solid rgba(10,10,10,.12);width:100%;">
+            <small style="color:var(--muted);font-size:12px;">JPG ou PNG — fond uni recommandé</small>
+          </div>
+          <div class="field"><label>Notes (optionnel)</label>
+            <input type="text" name="notes" placeholder="Capitaine, joueur étranger..." autocomplete="off">
+          </div>
+          <button type="button" id="depotBtn" class="btn btn-blue" style="width:100%;justify-content:center;margin-top:8px;" onclick="envoyerDepot()">
+            Enregistrer ce joueur
+          </button>
+        </form>
+
+        <div id="depotSuccess" style="display:none;text-align:center;padding:40px 20px;">
+          <div style="width:64px;height:64px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-family:Nunito,sans-serif;font-weight:800;font-size:22px;color:var(--blue);margin-bottom:8px;">Joueur enregistré !</h3>
+          <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">La fiche a bien été envoyée.</p>
+          <button class="btn btn-blue" style="margin:0 auto;" onclick="resetDepot()">Ajouter un autre joueur</button>
+        </div>
+      </div>
+
+      <!-- Infos et compteur -->
+      <div>
+        <div style="background:var(--blue);color:#fff;border-radius:12px;padding:32px;margin-bottom:20px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-bottom:8px;">Joueurs déposés</div>
+          <div id="depotCount" style="font-family:Nunito,sans-serif;font-size:64px;font-weight:800;line-height:1;letter-spacing:-2px;">0</div>
+          <div style="font-size:14px;opacity:.8;margin-top:8px;">Cette session</div>
+        </div>
+
+        <div style="background:var(--paper);border-radius:12px;padding:28px;border:1px solid var(--border);">
+          <div style="font-family:Nunito,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px;">💡 Conseils photo</div>
+          <ul style="list-style:none;font-size:14px;color:var(--ink-soft);line-height:1.8;">
+            <li>✅ Fond uni (mur blanc, porte)</li>
+            <li>✅ Portrait — visage + haut du corps</li>
+            <li>✅ Bonne lumière naturelle</li>
+            <li>✅ Maillot du club visible</li>
+            <li>❌ Pas de contre-jour</li>
+            <li>❌ Pas de fond encombré</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg-2);border-radius:12px;padding:28px;border:1px solid var(--border);margin-top:20px;">
+          <div style="font-family:Nunito,sans-serif;font-weight:700;font-size:16px;margin-bottom:8px;">📬 Où vont les données ?</div>
+          <p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Chaque fiche est envoyée à <strong>koppamyclub@gmail.com</strong>. Les joueurs sont aussi sauvegardés ci-dessous.</p>
+        </div>
+
+        <div style="background:var(--paper);border-radius:12px;padding:28px;border:1px solid var(--border);margin-top:20px;">
+          <div style="font-family:Nunito,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px;">👥 Joueurs enregistrés</div>
+          <div id="depotJoueursList"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- FIN PAGE DÉPÔT -->
 <footer>
   <div>
     <div class="footer-brand">KOPPA.</div>
@@ -1248,7 +1389,7 @@ const CLUBS = [
 
 /* ---- Navigation ---- */
 let previousPage = 'home';
-function nav(page){
+function nav(page, pushState=true){
   previousPage = document.querySelector('.page.active')?.id.replace('page-','') || 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
@@ -1258,8 +1399,26 @@ function nav(page){
   document.getElementById('navTabs').classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'});
   triggerReveal();
+  // History API pour que le bouton retour iPhone fonctionne
+  if(pushState) history.pushState({page}, '', '?p=' + page);
 }
 function navBack(){ nav(previousPage) }
+
+// Gérer le bouton retour natif du navigateur
+window.addEventListener('popstate', (e) => {
+  const page = e.state?.page || 'home';
+  nav(page, false);
+});
+
+// Restaurer la page depuis l'URL au chargement
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get('p');
+  if(page && document.getElementById('page-' + page)) {
+    nav(page, false);
+  }
+  afficherJoueurs();
+});
 
 /* ---- Reveal on scroll ---- */
 function triggerReveal(){
@@ -1628,6 +1787,116 @@ async function envoyerFormulaire() {
     alert('Erreur réseau. Contactez-nous à koppamyclub@gmail.com');
   }
 }
+</script>
+
+<script>
+let depotCount = 0;
+
+async function envoyerDepot() {
+  const form = document.getElementById('depotForm');
+  const btn = document.getElementById('depotBtn');
+  const success = document.getElementById('depotSuccess');
+
+  const prenom = form.querySelector('[name="prenom"]').value.trim();
+  const nom = form.querySelector('[name="nom"]').value.trim();
+  const equipe = form.querySelector('[name="equipe"]').value;
+  const poste = form.querySelector('[name="poste"]').value;
+  const pied = form.querySelector('[name="pied"]').value;
+  const numero = form.querySelector('[name="numero"]').value;
+  const notes = form.querySelector('[name="notes"]').value;
+  const photoInput = form.querySelector('[name="photo"]');
+  const photo = photoInput.files[0];
+
+  if (!prenom || !nom || !equipe) {
+    alert('Merci de remplir les champs obligatoires (*)');
+    return;
+  }
+
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  // Convertir la photo en base64 pour l'envoyer via Formspree
+  let photoData = '';
+  if (photo) {
+    photoData = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.readAsDataURL(photo);
+    });
+  }
+
+  // Envoyer les infos texte via Formspree
+  const data = new FormData();
+  data.append('prenom', prenom);
+  data.append('nom', nom);
+  data.append('equipe', equipe);
+  data.append('poste', poste);
+  data.append('pied', pied);
+  data.append('numero', numero);
+  data.append('notes', notes);
+  data.append('photo_nom', photo ? photo.name : 'Aucune photo');
+  data.append('_subject', 'Joueur KOPPA : ' + prenom + ' ' + nom + ' — ' + equipe);
+
+  try {
+    const res = await fetch('https://formspree.io/f/mbdbroje', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      // Stocker localement pour affichage
+      const joueurs = JSON.parse(localStorage.getItem('koppa_joueurs') || '[]');
+      joueurs.push({ prenom, nom, equipe, poste, pied, numero, notes, photo: photoData, date: new Date().toLocaleDateString() });
+      localStorage.setItem('koppa_joueurs', JSON.stringify(joueurs));
+
+      form.style.display = 'none';
+      success.style.display = 'block';
+      depotCount++;
+      document.getElementById('depotCount').textContent = depotCount;
+      afficherJoueurs();
+    } else {
+      btn.textContent = 'Enregistrer ce joueur';
+      btn.disabled = false;
+      alert('Erreur lors de l\'envoi. Contactez koppamyclub@gmail.com');
+    }
+  } catch(e) {
+    btn.textContent = 'Enregistrer ce joueur';
+    btn.disabled = false;
+    alert('Erreur réseau. Contactez koppamyclub@gmail.com');
+  }
+}
+
+function resetDepot() {
+  document.getElementById('depotForm').reset();
+  document.getElementById('depotForm').style.display = 'block';
+  document.getElementById('depotSuccess').style.display = 'none';
+  document.getElementById('depotBtn').textContent = 'Enregistrer ce joueur';
+  document.getElementById('depotBtn').disabled = false;
+}
+
+function afficherJoueurs() {
+  const joueurs = JSON.parse(localStorage.getItem('koppa_joueurs') || '[]');
+  const container = document.getElementById('depotJoueursList');
+  if (!container) return;
+  if (!joueurs.length) {
+    container.innerHTML = '<p style="color:var(--muted);font-size:14px;text-align:center;padding:20px 0;">Aucun joueur enregistré pour le moment.</p>';
+    return;
+  }
+  container.innerHTML = joueurs.reverse().map((j, i) => `
+    <div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);">
+      ${j.photo ? `<img src="${j.photo}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;">` : `<div style="width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:800;flex-shrink:0;">${j.prenom[0]}${j.nom[0]}</div>`}
+      <div style="flex:1;">
+        <div style="font-weight:700;font-size:15px;">${j.prenom} ${j.nom}</div>
+        <div style="font-size:12px;color:var(--muted);">${j.equipe}${j.poste ? ' · ' + j.poste : ''}</div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);">${j.date}</div>
+    </div>
+  `).join('');
+}
+
+// Charger les joueurs au chargement de la page dépôt
+document.addEventListener('DOMContentLoaded', afficherJoueurs);
 </script>
 </body>
 </html>
