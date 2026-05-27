@@ -1232,24 +1232,30 @@ footer a:hover,footer span:hover{opacity:.6}
       <em style="font-size:14px;color:var(--muted);">Exemple : USCA_Lucas_Martin_Equipe1_U11.jpg</em>
     </p>
 
-    <!-- Bouton vers le formulaire sur mobile -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEjz8GLRoc26r-sEp3KeQ9FN0Jx29lC04Crg0_VemPxwzj3w/viewform" target="_blank" class="btn btn-blue" style="margin-bottom:32px;display:inline-flex;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Ouvrir le formulaire
-    </a>
-
-    <!-- Iframe du formulaire pour desktop -->
-    <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,51,160,.1);border:1px solid var(--border);">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfEjz8GLRoc26r-sEp3KeQ9FN0Jx29lC04Crg0_VemPxwzj3w/viewform?embedded=true" 
-        width="100%" 
-        height="900" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0"
-        style="display:block;">
-        Chargement…
-      </iframe>
+    <!-- Bloc formulaire -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;max-width:600px;box-shadow:0 8px 32px rgba(0,51,160,.07);">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+        <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--blue);font-weight:700;margin-bottom:4px;">Formulaire joueur</div>
+          <div style="font-size:18px;font-weight:800;color:var(--ink);">Infos + photo du joueur</div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:8px;">
+        Remplissez ce formulaire <strong>une fois par joueur</strong>. Il vous demandera le prénom, nom, équipe, catégorie et la photo.
+      </p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:32px;">
+        📸 Nommez la photo avant l'envoi :<br>
+        <strong style="font-family:'JetBrains Mono',monospace;font-size:12px;">Club_Prénom_Nom_Equipe_Categorie.jpg</strong><br>
+        <em>Ex : USCA_Lucas_Martin_Equipe1_U11.jpg</em>
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEjz8GLRoc26r-sEp3KeQ9FN0Jx29lC04Crg0_VemPxwzj3w/viewform" target="_blank" rel="noopener" class="btn btn-blue" style="display:inline-flex;font-size:16px;padding:16px 32px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Remplir le formulaire
+      </a>
+      <p style="font-size:12px;color:var(--muted);margin-top:16px;">S'ouvre dans un nouvel onglet · Fonctionne sur mobile et desktop</p>
     </div>
   </div>
 </div>
