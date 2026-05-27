@@ -1310,7 +1310,6 @@ function nav(page, pushState=true){
   document.getElementById('navTabs').classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'});
   triggerReveal();
-  if(page === 'depot') setTimeout(afficherJoueurs, 100);
   // History API pour que le bouton retour iPhone fonctionne
   if(pushState) history.pushState({page}, '', '?p=' + page);
 }
@@ -1329,7 +1328,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if(page && document.getElementById('page-' + page)) {
     nav(page, false);
   }
-  afficherJoueurs();
 });
 
 /* ---- Reveal on scroll ---- */
