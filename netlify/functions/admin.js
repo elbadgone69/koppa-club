@@ -180,9 +180,9 @@ function exportCSV(clubFilter) {
   var data = clubFilter === 'all' ? allOrders : allOrders.filter(function(o) { return o.club_id === clubFilter; });
   var rows = [['Date','Prénom','Nom','Email','Club','Articles','Total']].concat(
     data.slice().sort(function(a,b){return b.timestamp-a.timestamp;}).map(function(o) {
-      return [o.date, o.prenom, o.nom, o.email, o.club_name, '"'+o.items+'"', o.total+'€'];
+      return [o.date, o.prenom, o.nom, o.email, o.club_name, o.items, o.total+'€'];
     })
-  ).map(function(r) { return r.join(','); }).join('\n');
+  ).map(function(r) { return r.join(','); }).join(String.fromCharCode(10));
   var a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(rows);
   a.download = 'koppa-commandes-' + (clubFilter === 'all' ? 'toutes' : clubFilter) + '.csv';
