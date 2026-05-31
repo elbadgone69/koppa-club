@@ -10,6 +10,11 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
 
+[[headers]]
+  for = "/admin"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self';"
+
 # Bloquer l'accès direct à admin.html
 [[redirects]]
   from = "/admin.html"
