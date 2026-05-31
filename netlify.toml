@@ -9,3 +9,15 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+
+# Bloquer l'accès direct à admin.html
+[[redirects]]
+  from = "/admin.html"
+  to = "/404"
+  status = 404
+
+# Route admin protégée via function
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/admin"
+  status = 200
