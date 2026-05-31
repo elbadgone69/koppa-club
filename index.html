@@ -1367,9 +1367,11 @@ document.getElementById('clubSearch').addEventListener('input', e => renderClubs
 renderClubs();
 
 /* ---- Boutique — vue club ---- */
+let currentClub = null;
 function openClub(id){
   const c = CLUBS.find(x => x.id === id);
   if(!c) return;
+  currentClub = c;
   document.getElementById('shopClubName').textContent = c.name;
   document.getElementById('shopClubSport').textContent = c.sport + ' · Saison 2025-2026';
   document.getElementById('shopClubVignettes').textContent = c.vignettes + ' vignettes';
@@ -1490,7 +1492,9 @@ async function goToCheckout() {
       body: JSON.stringify({
         amount: total,
         currency: 'eur',
-        items: items
+        items: items,
+        club_id: currentClub ? currentClub.id : 'inconnu',
+        club_name: currentClub ? currentClub.name : 'Inconnu'
       })
     });
 
@@ -1527,6 +1531,13 @@ function openStripeModal(clientSecret, total) {
         <div style="font-size:14px;color:#8a8a8a;">Paiement sécurisé</div>
       </div>
       <div id="stripe-summary" style="background:#f7f6f2;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-size:14px;color:#3a3a3a;"></div>
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;gap:10px;margin-bottom:10px;">
+          <input id="buyer-prenom" type="text" placeholder="Prénom *" style="flex:1;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:Nunito,sans-serif;font-size:14px;outline:none;">
+          <input id="buyer-nom" type="text" placeholder="Nom *" style="flex:1;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:Nunito,sans-serif;font-size:14px;outline:none;">
+        </div>
+        <input id="buyer-email" type="email" placeholder="Email *" style="width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:Nunito,sans-serif;font-size:14px;outline:none;box-sizing:border-box;">
+      </div>
       <div id="stripe-payment-el" style="margin-bottom:20px;"></div>
       <div id="stripe-pay-err" style="color:#e24b4a;font-size:13px;margin-bottom:12px;"></div>
       <button id="stripe-confirm-btn" style="width:100%;background:#0033A0;color:#fff;border:none;padding:16px;border-radius:100px;font-family:Nunito,sans-serif;font-weight:700;font-size:16px;cursor:pointer;">Payer →</button>
@@ -1566,6 +1577,21 @@ function openStripeModal(clientSecret, total) {
 
   document.getElementById('stripe-confirm-btn').onclick = async () => {
     const confirmBtn = document.getElementById('stripe-confirm-btn');
+    const prenom = document.getElementById('buyer-prenom').value.trim();
+    const nom = document.getElementById('buyer-nom').value.trim();
+    const email = document.getElementById('buyer-email').value.trim();
+    if (!prenom || !nom || !email) {
+      document.getElementById('stripe-pay-err').textContent = 'Merci de renseigner votre prénom, nom et email.';
+      return;
+    }
+    // Mettre à jour le PaymentIntent avec les infos acheteur
+    try {
+      await fetch('/.netlify/functions/update-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clientSecret, prenom, nom, email, club_id: currentClub ? currentClub.id : 'inconnu', club_name: currentClub ? currentClub.name : 'Inconnu', items: cart.map(i => i.name + ' x' + i.qty).join(', ') })
+      });
+    } catch(e) { /* non bloquant */ }
     confirmBtn.textContent = 'Traitement...';
     confirmBtn.disabled = true;
 
@@ -1573,6 +1599,7 @@ function openStripeModal(clientSecret, total) {
       elements,
       confirmParams: {
         return_url: window.location.origin + '/?success=true',
+        payment_method_data: { billing_details: { name: prenom + ' ' + nom, email: email } }
       },
       redirect: 'if_required'
     });
