@@ -468,8 +468,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   position:relative;overflow:hidden;margin-bottom:4px;
 }
 .shop-prod-visual.v-cahier{background:var(--blue-light)}
-.shop-prod-visual.v-booster{background:var(--blue)}
-.shop-prod-visual.v-pack{background:linear-gradient(135deg,var(--blue-light) 0%,#c8d4f0 100%)}
+.shop-prod-visual.v-booster{background:#ffffff}
+.shop-prod-visual.v-pack{background:#ffffff}
 .shop-prod-visual.v-combo{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%)}
 .shop-prod-visual svg{width:56px;height:56px;opacity:.85}
 .shop-prod-badge{
@@ -608,14 +608,11 @@ footer a:hover,footer span:hover{opacity:.6}
 .vis-cahier-img:hover{transform:rotate(-2deg) translateY(-6px)}
 .vis-vignette-img{
   position:absolute;
-  width:155px;
-  top:30px;right:0;
-  transform:rotate(6deg);
-  border-radius:6px;
-  box-shadow:0 16px 40px rgba(0,51,160,.18);
+  width:240px;
+  top:30px;right:-10px;
   transition:transform .4s;
   z-index:3;
-  object-fit:cover;
+  object-fit:contain;
 }
 .vis-vignette-img:hover{transform:rotate(2deg) translateY(-6px)}
 
